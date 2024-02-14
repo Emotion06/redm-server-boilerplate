@@ -8,24 +8,24 @@ tasks:
   - action: download_github
     src: https://github.com/Emotion06/redm-server-boilerplate
     ref: main
-    dest: ./tmp/vorp
+    dest: ./tmp/redm-server-boilerplate
 
   - action: move_path
-    src: ./tmp/vorp/server.cfg
+    src: ./tmp/redm-server-boilerplate/server.cfg
     dest: ./server.cfg
 
   - action: move_path
-    src: ./tmp/vorp/perms.cfg
+    src: ./tmp/redm-server-boilerplate/perms.cfg
     dest: ./perms.cfg
 
   - action: move_path
-    src: ./tmp/vorp/resources.cfg
+    src: ./tmp/redm-server-boilerplate/resources.cfg
     dest: ./resources.cfg
 
   # Prepare Database
   - action: connect_database
   - action: query_database
-    file: ./tmp/vorp/vorp.sql
+    file: ./tmp/redm-server-boilerplate/vorp.sql
 
 
   # STANDALONE
