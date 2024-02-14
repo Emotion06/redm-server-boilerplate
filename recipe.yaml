@@ -16,11 +16,11 @@ tasks:
 
   - action: move_path
     src: ./tmp/vorp/perms.cfg
-    dest: ./server.cfg
+    dest: ./perms.cfg
 
   - action: move_path
     src: ./tmp/vorp/resources.cfg
-    dest: ./server.cfg
+    dest: ./resources.cfg
 
   # Prepare Database
   - action: connect_database
