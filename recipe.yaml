@@ -1,0 +1,210 @@
+$engine: 3
+$onesync: on
+name: RedM Server Boilerplate
+author: Spooni
+description: RedM Server Boilerplate by Spooni (VORP)
+tasks:
+  #  Download Base Files
+  - action: download_github
+    src: https://github.com/Emotion06/redm-server-boilerplate
+    ref: main
+    dest: ./tmp/vorp
+
+  - action: move_path
+    src: ./tmp/vorp/server.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./tmp/vorp/perms.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./tmp/vorp/resources.cfg
+    dest: ./server.cfg
+
+  # Prepare Database
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/vorp/vorp.sql
+
+
+  # STANDALONE
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    subpath: resources
+    dest: ./resources/[cfx]
+
+  - action: download_file
+    path: ./tmp/files/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/download/v2.8.0/oxmysql.zip
+  - action: unzip
+    dest: ./resources/
+    src: ./tmp/files/oxmysql.zip
+
+  # ESSENTIALS
+
+  - action: download_github
+    dest: ./resources/[essentials]/weathersync
+    ref: master
+    src: https://github.com/Hailey-Ross/weathersync
+
+  - action: download_github
+    dest: ./resources/[essentials]/interiors
+    ref: master
+    src: https://github.com/Hailey-Ross/psn_interiors
+
+  - action: download_github
+    dest: ./resources/[essentials]/uiprompt
+    ref: master
+    src: https://github.com/kibook/redm-uiprompt
+
+  # VORP
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_core
+    ref: master
+    src: https://github.com/VORPCORE/vorp_core-lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_inventory
+    ref: master
+    src: https://github.com/VORPCORE/vorp_inventory-lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_character
+    ref: main
+    src: https://github.com/VORPCORE/vorp_character-lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_inputs
+    ref: main
+    src: https://github.com/VORPCORE/vorp_inputs-lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_utils
+    ref: main
+    src: https://github.com/VORPCORE/vorp_utils
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_traffic
+    ref: main
+    src: https://github.com/VORPCORE/vorp_traffic
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_radius
+    ref: main
+    src: https://github.com/VORPCORE/vorp_radius
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_progressbar
+    ref: main
+    src: https://github.com/VORPCORE/vorp_progressbar
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_zonenotify
+    ref: main
+    src: https://github.com/VORPCORE/vorp_zonenotify
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_imapviewtool
+    ref: main
+    src: https://github.com/VORPCORE/vorp_imapviewtool
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_barbershop
+    ref: main
+    src: https://github.com/VORPCORE/vorp_barbershop_lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_fishing-
+    ref: main
+    src: https://github.com/VORPCORE/vorp_fishing-lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_menu
+    ref: main
+    src: https://github.com/VORPCORE/vorp_menu
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_admin
+    ref: main
+    src: https://github.com/VORPCORE/vorp_admin
+
+  # SPOONI
+
+  - action: download_github
+    dest: ./resources/[spooni]/spooni_interactions
+    ref: main
+    src: https://github.com/Spooni-Development/spooni_interactions
+
+  - action: download_github
+    dest: ./resources/[spooni]/spooner
+    ref: main
+    src: https://github.com/Spooni-Development/spooni_spooner
+
+  # BCC
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-utils
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-utils
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-minigames
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-minigames
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-scene
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-scene
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-doorlocks
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-doorlocks
+
+  # XAKRA
+
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_steal
+    ref: main
+    src: https://github.com/XakraD/xakra_steal
+
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_clothingstores
+    ref: main
+    src: https://github.com/XakraD/xakra_clothingstores
+  
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_waterpump
+    ref: main
+    src: https://github.com/XakraD/xakra_waterpump
+
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_pocketwatch
+    ref: main
+    src: https://github.com/XakraD/xakra_pocketwatch
+
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_scenarios
+    ref: main
+    src: https://github.com/XakraD/xakra_scenarios
+
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_fireworks
+    ref: main
+    src: https://github.com/XakraD/xakra_fireworks
+
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_pomade
+    ref: main
+    src: https://github.com/XakraD/xakra_pomade
+
+  - action: download_github
+    dest: ./resources/[xakra]/xakra_flourishes
+    ref: main
+    src: https://github.com/XakraD/xakra_flourishes
+
+  # Clean up
+  - action: remove_path
+    path: ./tmp
