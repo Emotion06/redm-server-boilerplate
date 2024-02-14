@@ -46,7 +46,7 @@ tasks:
   - action: download_github
     dest: ./resources/[essentials]/weathersync
     ref: master
-    src: https://github.com/Hailey-Ross/weathersync
+    src: https://github.com/kibook/weathersync
 
   - action: download_github
     dest: ./resources/[essentials]/interiors
