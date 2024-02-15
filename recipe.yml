@@ -28,11 +28,6 @@ tasks:
     src: ./temp/redm-server-boilerplate/icon.png
     dest: ./icon.png
 
-  # Prepare Database
-  - action: connect_database
-  - action: query_database
-    file: ./tmp/redm-server-boilerplate/database.sql
-
   # Download CFX Server Data
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
@@ -122,6 +117,27 @@ tasks:
     ref: main
     src: https://github.com/VORPCORE/vorp_admin
 
+  # Download Framework Addons
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_zonenotify
+    ref: main
+    src: https://github.com/VORPCORE/vorp_zonenotify
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_imapviewtool
+    ref: main
+    src: https://github.com/VORPCORE/vorp_imapviewtool
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_barbershop
+    ref: main
+    src: https://github.com/VORPCORE/vorp_barbershop_lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_fishing-
+    ref: main
+    src: https://github.com/VORPCORE/vorp_fishing-lua
+
   # Downlad Spooni 
   - action: download_github
     dest: ./resources/[spooni]/spooni_interactions
@@ -134,5 +150,9 @@ tasks:
     src: https://github.com/Spooni-Development/spooni_spooner
 
   # Clean up db files
+  - action: remove_path
+    path: ./resources/[cfx]/[gamemodes]/fivem-map-hipster
+  - action: remove_path
+    path: ./resources/[cfx]/[gamemodes]/fivem-map-skater
   - action: remove_path
     path: ./temp

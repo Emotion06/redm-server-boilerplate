@@ -1,24 +1,3 @@
-  # VORP
-  - action: download_github
-    dest: ./resources/[vorp]/vorp_zonenotify
-    ref: main
-    src: https://github.com/VORPCORE/vorp_zonenotify
-
-  - action: download_github
-    dest: ./resources/[vorp]/vorp_imapviewtool
-    ref: main
-    src: https://github.com/VORPCORE/vorp_imapviewtool
-
-  - action: download_github
-    dest: ./resources/[vorp]/vorp_barbershop
-    ref: main
-    src: https://github.com/VORPCORE/vorp_barbershop_lua
-
-  - action: download_github
-    dest: ./resources/[vorp]/vorp_fishing-
-    ref: main
-    src: https://github.com/VORPCORE/vorp_fishing-lua
-
   # BCC
 
   - action: download_github
