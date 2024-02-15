@@ -6,8 +6,8 @@ version: 1.0.0
 author: Spooni
 
 tasks:
-  # Prepare Database
-  - action: connect_database
+  # # Prepare Database
+  # - action: connect_database
 
   # Download DB
   - action: download_github
@@ -15,13 +15,13 @@ tasks:
     ref: main
     dest: ./temp/redm-server-boilerplate
 
-  # Migrate(Setup) Database Tables
-  - action: query_database
-    file: ./temp/redm-server-boilerplate/database/vorp.sql
+  # # Migrate(Setup) Database Tables
+  # - action: query_database
+  #   file: ./temp/redm-server-boilerplate/database/vorp.sql
 
-  # Seed Database
-  - action: query_database
-    file: ./temp/redm-server-boilerplate/database/other.sql
+  # # Other Database
+  # - action: query_database
+  #   file: ./temp/redm-server-boilerplate/database/other.sql
 
   # Download default CFX resources
   - action: download_github
