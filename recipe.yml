@@ -6,51 +6,71 @@ version: 1.0.0
 author: Spooni
 
 tasks:
-  # Prepare Database
-  - action: connect_database
-
-  # Download DB
+  # Download Base Files
   - action: download_github
     src: https://github.com/Emotion06/redm-server-boilerplate
     ref: main
     dest: ./temp/redm-server-boilerplate
 
-  # Migrate(Setup) Database Tables
-  - action: query_database
-    file: ./temp/redm-server-boilerplate/database/vorp.sql
+  # Move the CFG Files
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/cfg/server.cfg
+    dest: ./server.cfg
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/cfg/perms.cfg
+    dest: ./perms.cfg
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/cfg/resources.cfg
+    dest: ./resources.cfg
 
-  # Other Database
-  - action: query_database
-    file: ./temp/redm-server-boilerplate/database/other.sql
+  # Move the Server Icon
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/icon.png
+    dest: ./icon.png
 
-  # Download default CFX resources
+  # Prepare Database
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/redm-server-boilerplate/database.sql
+
+  # Download CFX Server Data
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
     ref: master
     subpath: resources
     dest: ./resources/[cfx]
 
-  # Move the server config over
-  - action: move_path
-    src: ./temp/redm-server-boilerplate/cfg/server.cfg
-    dest: ./server.cfg
-  
-  # Move the perms config over
-  - action: move_path
-    src: ./temp/redm-server-boilerplate/cfg/perms.cfg
-    dest: ./perms.cfg
-  
-  # Move the resources config over
-  - action: move_path
-    src: ./temp/redm-server-boilerplate/cfg/resources.cfg
-    dest: ./resources.cfg
+  # Download Essentials
+  - action: download_file
+    path: ./tmp/files/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+  - action: unzip
+    dest: ./resources/[essentials]
+    src: ./tmp/files/oxmysql.zip
+    
+  - action: download_file
+    path: ./tmp/files/ox_lib.zip
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+  - action: unzip
+    dest: ./resources/[essentials]
+    src: ./tmp/files/ox_lib.zip
 
-  # Move the server icon over
-  - action: move_path
-    src: ./temp/redm-server-boilerplate/servericon.png
-    dest: ./servericon.png
+  - action: download_github
+    dest: ./resources/[essentials]/weathersync
+    ref: main
+    src: https://github.com/Hailey-Ross/weathersync
 
-  # Download Framework dependency
+  - action: download_github
+    dest: ./resources/[essentials]/interiors
+    ref: main
+    src: https://github.com/Hailey-Ross/psn_interiors
+
+  - action: download_github
+    dest: ./resources/[essentials]/uiprompt
+    ref: master
+    src: https://github.com/kibook/redm-uiprompt
+
+  # Download Framework
 
   - action: download_github
     src: https://github.com/VORPCORE/vorp_core-lua
@@ -92,29 +112,15 @@ tasks:
     ref: main
     dest: ./resources/[vorp]/vorp_progressbar
 
-  # Download Essentials dependency
-  - action: download_file
-    path: ./temp/files/oxmysql.zip
-    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
-
-  - action: unzip
-    src: ./temp/files/oxmysql.zip
-    dest: ./resources/[essentials]
-
   - action: download_github
-    dest: ./resources/[essentials]/weathersync
+    dest: ./resources/[vorp]/vorp_menu
     ref: main
-    src: https://github.com/Hailey-Ross/weathersync
+    src: https://github.com/VORPCORE/vorp_menu
 
   - action: download_github
-    dest: ./resources/[essentials]/interiors
+    dest: ./resources/[vorp]/vorp_admin
     ref: main
-    src: https://github.com/Hailey-Ross/psn_interiors
-
-  - action: download_github
-    dest: ./resources/[essentials]/uiprompt
-    ref: master
-    src: https://github.com/kibook/redm-uiprompt
+    src: https://github.com/VORPCORE/vorp_admin
 
   # Downlad Spooni 
   - action: download_github
