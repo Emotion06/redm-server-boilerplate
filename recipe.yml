@@ -151,8 +151,8 @@ tasks:
 
   # Clean up db files
   - action: remove_path
-    path: ./resources/[cfx]/[gamemodes]/fivem-map-hipster
+    path: ./resources/[cfx]/[gamemodes]/[maps]/fivem-map-hipster
   - action: remove_path
-    path: ./resources/[cfx]/[gamemodes]/fivem-map-skater
+    path: ./resources/[cfx]/[gamemodes]/[maps]/fivem-map-skater
   - action: remove_path
     path: ./temp
