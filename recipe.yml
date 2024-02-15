@@ -1,0 +1,132 @@
+$engine: 3
+$onesync: on
+name: RedM Server Boilerplate
+description: RedM Server Boilerplate by Spooni (VORP)
+version: 1.0.0
+author: Spooni
+
+tasks:
+  # Prepare Database
+  - action: connect_database
+
+  # Download DB
+  - action: download_github
+    src: https://github.com/Emotion06/redm-server-boilerplate
+    ref: main
+    dest: ./temp/redm-server-boilerplate
+
+  # Migrate(Setup) Database Tables
+  - action: query_database
+    file: ./temp/redm-server-boilerplate/database/vorp.sql
+
+  # Seed Database
+  - action: query_database
+    file: ./temp/redm-server-boilerplate/database/other.sql
+
+  # Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[cfx]
+
+  # Move the server config over
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/cfg/server.cfg
+    dest: ./server.cfg
+  
+  # Move the perms config over
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/cfg/perms.cfg
+    dest: ./perms.cfg
+  
+  # Move the resources config over
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/cfg/resources.cfg
+    dest: ./resources.cfg
+
+  # Move the server icon over
+  - action: move_path
+    src: ./temp/redm-server-boilerplate/servericon.png
+    dest: ./servericon.png
+
+  # Download Framework dependency
+
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_core-lua
+    ref: main
+    dest: ./resources/[vorp]/vorp_core
+
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_inventory-lua
+    ref: main
+    dest: ./resources/[vorp]/vorp_inventory
+
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_character-lua
+    ref: main
+    dest: ./resources/[vorp]/vorp_character 
+
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_inputs-lua
+    ref: main
+    dest: ./resources/[vorp]/vorp_inputs
+
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_utils
+    ref: main
+    dest: ./resources/[vorp]/vorp_utils
+
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_traffic
+    ref: main
+    dest: ./resources/[vorp]/vorp_traffic
+    
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_radius
+    ref: main
+    dest: ./resources/[vorp]/vorp_radius
+    
+  - action: download_github
+    src: https://github.com/VORPCORE/vorp_progressbar
+    ref: main
+    dest: ./resources/[vorp]/vorp_progressbar
+
+  # Download Essentials dependency
+  - action: download_file
+    path: ./temp/files/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+
+  - action: unzip
+    src: ./temp/files/oxmysql.zip
+    dest: ./resources/[essentials]
+
+  - action: download_github
+    dest: ./resources/[essentials]/weathersync
+    ref: main
+    src: https://github.com/Hailey-Ross/weathersync
+
+  - action: download_github
+    dest: ./resources/[essentials]/interiors
+    ref: main
+    src: https://github.com/Hailey-Ross/psn_interiors
+
+  - action: download_github
+    dest: ./resources/[essentials]/uiprompt
+    ref: master
+    src: https://github.com/kibook/redm-uiprompt
+
+  # Downlad Spooni 
+  - action: download_github
+    dest: ./resources/[spooni]/spooni_interactions
+    ref: main
+    src: https://github.com/Spooni-Development/spooni_interactions
+
+  - action: download_github
+    dest: ./resources/[spooni]/spooner
+    ref: main
+    src: https://github.com/Spooni-Development/spooni_spooner
+
+  # Clean up db files
+  - action: remove_path
+    path: ./temp
