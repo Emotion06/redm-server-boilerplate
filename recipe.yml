@@ -8,7 +8,7 @@ author: Spooni
 tasks:
   # Download Base Files
   - action: download_github
-    src: https://github.com/Emotion06/redm-server-boilerplate
+    src: https://github.com/Emotion06/myBoilerplate
     ref: main
     dest: ./temp/redm-server-boilerplate
 
@@ -145,6 +145,11 @@ tasks:
     src: https://github.com/Spooni-Development/spooni_interactions
 
   - action: download_github
+    dest: ./resources/[spooni]/spooni_jobblips
+    ref: main
+    src: https://github.com/Spooni-Development/spooni_jobblips
+
+  - action: download_github
     dest: ./resources/[spooni]/spooner
     ref: main
     src: https://github.com/Spooni-Development/spooni_spooner
@@ -152,7 +157,9 @@ tasks:
   # Clean up db files
   - action: remove_path
     path: ./resources/[cfx]/[gamemodes]/[maps]/fivem-map-hipster
+
   - action: remove_path
     path: ./resources/[cfx]/[gamemodes]/[maps]/fivem-map-skater
+    
   - action: remove_path
     path: ./temp
