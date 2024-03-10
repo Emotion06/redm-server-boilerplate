@@ -35,12 +35,6 @@ tasks:
     subpath: resources
     dest: ./resources/[cfx]
 
-      # Download VORP SQL Data
-  - action: download_github
-    src: https://github.com/VORPCORE/vorp_pre-made/blob/main/MariaDB.sql
-    ref: master
-    dest: server-data
-
   # Download Essentials
   - action: download_file
     path: ./tmp/files/oxmysql.zip
