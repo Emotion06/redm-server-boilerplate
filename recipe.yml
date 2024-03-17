@@ -134,7 +134,7 @@ tasks:
     src: https://github.com/VORPCORE/vorp_barbershop_lua
 
   - action: download_github
-    dest: ./resources/[vorp]/vorp_fishing-
+    dest: ./resources/[vorp]/vorp_fishing
     ref: main
     src: https://github.com/VORPCORE/vorp_fishing-lua
 
@@ -150,7 +150,7 @@ tasks:
     src: https://github.com/Spooni-Development/spooni_jobblips
 
   - action: download_github
-    dest: ./resources/[spooni]/spooner
+    dest: ./resources/[spooni]/spooni_spooner
     ref: main
     src: https://github.com/Spooni-Development/spooni_spooner
 
