@@ -2,7 +2,6 @@ $engine: 3
 $onesync: on
 name: RedM Server Boilerplate
 description: RedM Server Boilerplate by Spooni (VORP)
-version: 1.0.0
 author: Spooni
 
 tasks:
@@ -64,6 +63,11 @@ tasks:
     dest: ./resources/[essentials]/uiprompt
     ref: master
     src: https://github.com/kibook/redm-uiprompt
+
+  - action: download_github
+    dest: ./resources/[essentials]/jo_libs
+    ref: main
+    src: https://github.com/Jump-On-Studios/RedM-jo_libs
 
   # Download Framework
 
@@ -137,6 +141,11 @@ tasks:
     dest: ./resources/[vorp]/vorp_fishing
     ref: main
     src: https://github.com/VORPCORE/vorp_fishing-lua
+
+  - action: download_github
+    dest: ./resources/[vorp]/vorp_banking
+    ref: main
+    src: https://github.com/VORPCORE/vorp_banking
 
   # Downlad Spooni 
   - action: download_github
