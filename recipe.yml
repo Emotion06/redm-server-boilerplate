@@ -154,14 +154,85 @@ tasks:
     src: https://github.com/Spooni-Development/spooni_interactions
 
   - action: download_github
-    dest: ./resources/[spooni]/spooni_jobblips
-    ref: main
-    src: https://github.com/Spooni-Development/spooni_jobblips
-
-  - action: download_github
     dest: ./resources/[spooni]/spooni_spooner
     ref: main
     src: https://github.com/Spooni-Development/spooni_spooner
+
+  # Download BCC
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-utils
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-utils/releases/latest
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-minigames
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-minigames/releases/latest
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-deferralcards
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-deferralcards
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-crypt
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-crypt
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-vehiclefixes
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-vehiclefixes/releases/latest 
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-doorlocks
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-doorlocks/releases/latest 
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-blindfold
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-blindfold/releases/latest
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-scene
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-scene/releases/latest
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-train
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-train/releases/latest
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-guarma
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-guarma/releases/latest
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-farming
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-farming/releases/latest
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-housing
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-housing/releases/latest    
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-water
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-water/releases/latest     
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-goldpanning
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-goldpanning/releases/latest       
+
+  - action: download_github
+    dest: ./resources/[bcc]/bcc-boats
+    ref: main
+    src: https://github.com/BryceCanyonCounty/bcc-boats/releases/latest      
 
   # Clean up db files
   - action: remove_path
